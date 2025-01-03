@@ -4,7 +4,7 @@ import { Container, Row, Col, Image, Button } from 'react-bootstrap';
 function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState(null); // État pour l'image principale
-  const id = location.href.split('/')[location.href.split('/').length - 1];
+  const id = location.href.split('/').pop();
 
   useEffect(() => {
     async function fetchProduct() {

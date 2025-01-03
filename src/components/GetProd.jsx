@@ -18,19 +18,21 @@ function ProductCard({ product }) {
                 alignItems: 'center'
             }}
         >
-            <Card.Img 
-                variant="top" 
-                src={product.images[0].src} 
-                style={{ 
-                    objectFit: 'cover', 
-                    height: '400px', 
-                    width: '100%' 
+            <Card.Img
+                variant="top"
+                src={product.images[0].src}
+                style={{
+                    objectFit: 'cover',
+                    height: '400px',
+                    width: '100%'
                 }}
             />
             <Card.Body style={{ textAlign: 'center' }}>
                 <Card.Title>{product.title}</Card.Title>
                 <Card.Text>Prix: {product.variants[0].price}€</Card.Text>
-                <Button variant="primary"><a style={{color:"black"}} href={`/${product.handle}`}> Voir Plus</a></Button>
+                <Button variant="primary">
+                    <Link style={{ color: "black" }} to={`/${product.handle}`}>Voir Plus</Link>
+                </Button>
             </Card.Body>
         </Card>
     );
@@ -63,30 +65,30 @@ function GetProd() {
     }, []);
 
     return (
-        <Container 
-            fluid 
-            className="px-4" 
-            style={{ 
-                display: 'flex', 
-                flexDirection: 'column' 
+        <Container
+            fluid
+            className="px-4"
+            style={{
+                display: 'flex',
+                flexDirection: 'column'
             }}
         >
             <h1 className="mb-4 text-center">Produits Moodz</h1>
             {products.length > 0 ? (
-                <Row 
-                    style={{ 
-                        display: 'flex', 
+                <Row
+                    style={{
+                        display: 'flex',
                         flexWrap: 'wrap',
                         gap: '20px',
                         justifyContent: 'center'
                     }}
                 >
                     {products.map((product) => (
-                        <Col 
-                            key={product.id} 
-                            xs={12} 
-                            sm={6} 
-                            md={4} 
+                        <Col
+                            key={product.id}
+                            xs={12}
+                            sm={6}
+                            md={4}
                             style={{
                                 flex: '0 0 calc(33.333% - 20px)',
                                 maxWidth: 'calc(33.333% - 20px)',
